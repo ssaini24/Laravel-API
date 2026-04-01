@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    // Rule: select_star — Book::all() translates to SELECT * FROM users
-    public function index()
+    // Rule: select_star — fetches all columns filtered by name
+    public function index(Request $request)
     {
-        $users = User::all();
+        $users = User::where('name', $request->name)->get();
         return response()->json($users);
     }
 
