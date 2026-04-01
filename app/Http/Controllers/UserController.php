@@ -52,7 +52,7 @@ class UserController extends Controller
     // Rule: destructive_ddl — drop table via Schema
     public function dropSessions()
     {
-        \Schema::drop('sessions');
+        Schema::drop('sessions');
         return response()->json(['message' => 'Sessions table dropped']);
     }
 }
