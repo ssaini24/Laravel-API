@@ -11,4 +11,4 @@ jobs:
       llm_provider: "claude-code"
     secrets:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      CLAUDE_ACCESS_TOKEN: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+      CLAUDE_CREDENTIALS: ${{ secrets.CLAUDE_CREDENTIALS }}
