@@ -2,13 +2,19 @@ name: Prism Code Review
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [labeled]
+
+permissions:
+  pull-requests: write
+  issues: write
 
 jobs:
   review:
+    if: github.event.label.name == 'prism-review'
     uses: ssaini24/prism/.github/workflows/review.yml@main
     with:
-      llm_provider: "claude-code" # "anthropic"
+      llm_provider: "claude-code"
+      enable_static_analysis: false
     secrets:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       CLAUDE_CREDENTIALS: ${{ secrets.CLAUDE_CREDENTIALS }}
